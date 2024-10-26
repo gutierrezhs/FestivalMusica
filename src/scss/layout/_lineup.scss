@@ -1,0 +1,78 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.lineup {
+    background-color: v.$rosa;
+    padding: 5rem 0;
+
+    h3, .dia {
+        text-align: center;
+        color: v.$blanco;
+    }
+    .dia {
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin: 5rem 0;
+    }
+}
+
+.escenarios-contenedor {
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    }
+
+    p {
+        color: v.$negro;
+    }
+}
+
+.escenario {
+    padding-top: 2rem;
+    .nombre-escenario {
+        font-size: 3rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 10rem;
+            height: 10rem;
+            background-size: 10rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0rem auto 0 auto;
+        }
+    }
+}
+.edm .nombre-escenario:after {
+    background-image: url(../img/icono_edm.png);
+}
+.rock .nombre-escenario:after {
+    background-image: url(../img/icono_rock.png);
+}
+
+.calendario {
+    @include m.resetear-lista;
+    li {
+        padding: 2.5rem;
+        font-weight: 700;
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-amarillo {
+    background-color: v.$amarillo;
+    ul li:nth-child(odd) {
+        background-color: rgba($color: v.$amarillo, $alpha: 0);
+    }
+}
+.bg-verde {
+    background-color: v.$verde;
+    li:nth-child(odd) {
+        background-color: rgba($color: v.$verde, $alpha: 1);
+    }
+}
